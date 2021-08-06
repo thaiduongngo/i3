@@ -7,6 +7,7 @@ general {
 order += "wireless _first_"
 order += "disk /"
 order += "memory"
+order += "cpu_usage"
 order += "tztime local"
 order += "battery all"
 
@@ -23,7 +24,11 @@ disk "/" {
 memory {
         format = "[ME: %used/%total]"
         threshold_degraded = "10%"
-        format_degraded = "ME: %free"
+        format_degraded = "[ME: %free]"
+}
+
+cpu_usage {
+        format = "[CP: %usage]"
 }
 
 tztime local {
