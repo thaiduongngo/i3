@@ -1,0 +1,36 @@
+general {
+        colors = true
+        interval = 5
+        separator = "|"
+}
+
+order += "wireless _first_"
+order += "disk /"
+order += "memory"
+order += "tztime local"
+order += "battery all"
+
+
+wireless _first_ {
+        format_up = "[WI: %quality %essid %ip]"
+        format_down = "[WI: DOWN!]"
+}
+
+disk "/" {
+        format = "[DK: %used/%total]"
+}
+
+memory {
+        format = "[ME: %used/%total]"
+        threshold_degraded = "10%"
+        format_degraded = "ME: %free"
+}
+
+tztime local {
+        # format = "%Y-%m-%d %H:%M:%S"
+        format = "[DT: %H:%M %d-%m]"
+}
+
+battery all {
+        format = "[BT: %status %percentage %remaining]"
+}
