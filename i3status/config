@@ -1,41 +1,39 @@
 general {
         colors = true
         interval = 5
-        separator = "|"
 }
 
 order += "wireless _first_"
 order += "disk /"
 order += "memory"
 order += "cpu_usage"
-order += "tztime local"
 order += "battery all"
-
+order += "tztime local"
 
 wireless _first_ {
-        format_up = "[WI: %quality %essid %ip]"
+        format_up = "[WI: (Q)%quality@%essid]"
         format_down = "[WI: DOWN!]"
 }
 
 disk "/" {
-        format = "[DK: %used/%total]"
+        format = "[DI: (U)%used/(T)%total]"
 }
 
 memory {
-        format = "[ME: %used/%total]"
+        format = "[ME: (U)%used/(T)%total]"
         threshold_degraded = "10%"
-        format_degraded = "[ME: %free]"
+        format_degraded = "[ME: (F)%free]"
 }
 
 cpu_usage {
-        format = "[CP: %usage]"
+        format = "[CP: (U)%usage]"
 }
 
 tztime local {
         # format = "%Y-%m-%d %H:%M:%S"
-        format = "[DT: %H:%M %d-%m]"
+        format = "[DT: (D)%d-%m (T)%H:%M]"
 }
 
 battery all {
-        format = "[BT: %status %percentage %remaining]"
+        format = "[BT: (S)%status (P)%percentage (R)%remaining]"
 }
